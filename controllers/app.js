@@ -98,6 +98,17 @@ app.get("/showCar/:id", (req, res) => {
     });
 });
 
+//remoeving car record from the database using the name by query parameter
+app.get("/removeCar", (req, res) => {
+  CarsDB.deleteOne({ name: req.query.name })
+    .then(() => {
+      res.redirect("/carsView");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 //testing port 8080
 app.listen(8888, () => {
   console.log("Server is running on port 8080");

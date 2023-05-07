@@ -45,8 +45,10 @@
   <body>
     <div class="h-25">
       <div class="box">
-        <h1 style="font-size: 80px">HW</h1>
-        <i class="fa-solid fa-angles-down fa-fade fa-2xl"></i>
+        <h1 style="font-size: 80px">cars</h1>
+        <span>
+          <i class="fa-solid fa-angles-down fa-fade fa-2xl"></i>
+        </span>
       </div>
     </div>
 
@@ -92,16 +94,13 @@
         <form action="carsView" method="get">
           <% for(x of cars) { %>
           <div
-            class="card text-center mb-lg-3 card shadow-lg p-3 mb-5 bg-body rounded m-lg-auto"
+            class="card text-bg-light mb-lg-3 card shadow-lg p-3 mb-5 bg-body rounded m-lg-auto "
             style="width: 18rem"
           >
             <div class="card-body">
               <h5 class="card-title"><%= x.name%></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= x.model%></h6>
               <p class="card-text"><%= x.driverName%></p>
-              <button class="btn btn-secondary" name="id" type="submit">
-                delete
-              </button>
             </div>
           </div>
           <% } %>
