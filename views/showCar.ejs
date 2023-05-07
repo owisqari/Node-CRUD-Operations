@@ -51,18 +51,16 @@
     </div>
 
     <div class="h-50 d-flex align-items-center justify-content-center"></div>
-      <% for( let x of cars ) { %>
       <div
         class="card text-center mb-lg-3 card shadow-lg p-3 mb-5 bg-body rounded m-lg-auto"
         style="width: 18rem"
       >
         <div class="card-body">
-          <h5 class="card-title"><%= x.name%></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= x.model%></h6>
-          <p class="card-text"><%= x.driverName%></p>
+          <h5 class="card-title"><%= car.name%></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= car.model%></h6>
+          <p class="card-text"><%= car.driverName%></p>
         </div>
       </div>
-      <% } %>
     </div>
     <!-- BOOTSTRAP -->
     <script

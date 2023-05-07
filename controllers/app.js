@@ -87,16 +87,17 @@ app.get("/removeCarBydriverName/:driverName", (req, res) => {
     });
 });
 
-//show car by path prameters using the id
+//displaying the car details in the showCar page using the id as path parameter
 app.get("/showCar/:id", (req, res) => {
   CarsDB.findById(req.params.id)
     .then((data) => {
-      res.render("showCar.ejs", { cars: data });
+      res.render("showCar.ejs", { car: data });
     })
     .catch((err) => {
       console.log(err);
     });
 });
+
 //testing port 8080
 app.listen(8888, () => {
   console.log("Server is running on port 8080");
