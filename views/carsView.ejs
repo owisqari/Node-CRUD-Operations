@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>database test</title>
+    <script
+      src="https://kit.fontawesome.com/1bacf2776e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css");
+    html,
+    body {
+      height: 100%;
+      background-color: #ffffff;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(70,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(28,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='22.11'%3E%3Cpath transform='translate(-106.05 13.6) rotate(5.65 1409 581) scale(0.9929789999999998)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='7.370000000000001' transform='translate(-100.5 72) rotate(12.100000000000001 800 450) scale(1.0177569999999998)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(34.400000000000006 -130.5) rotate(111.5 401 736) scale(1.0177569999999998)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='6.7'%3E%3Cpath transform='translate(432 -9.799999999999999) rotate(2.4499999999999997 150 345) scale(0.9649929999999999)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='14.740000000000002' transform='translate(-183.5 -189.5) rotate(122.4 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='translate(-325.6 98.4) rotate(20.4 1400 132) scale(0.905)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 64px;
+      padding: 32px;
+      font-size: 32px;
+    }
+    .box span {
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <div class="h-25">
+      <div class="box">
+        <h1 style="font-size: 80px">HW</h1>
+        <i class="fa-solid fa-angles-down fa-fade fa-2xl"></i>
+      </div>
+    </div>
+
+    <div class="h-50 d-flex align-items-center justify-content-center">
+      <form action="/carsView" method="post">
+        <div class="input-group input-group-lg">
+          <div class="input-group mb-3">
+            <input
+              name="carName"
+              type="text"
+              class="form-control"
+              placeholder="Car Name"
+              required
+            />
+            <span class="input-group-text"></span>
+            <input
+              name="model"
+              type="text"
+              class="form-control"
+              placeholder="Car Model"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-text"></span>
+            <input
+              class="form-control"
+              placeholder="Driver Name"
+              name="driverName"
+              type="text"
+              required
+            ></input>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="h-25 d-flex align-items-center justify-content-center mr-3">
+        <form action="carsView" method="get">
+          <% for(x of cars) { %>
+          <div
+            class="card text-center mb-lg-3 card shadow-lg p-3 mb-5 bg-body rounded m-lg-auto"
+            style="width: 18rem"
+          >
+            <div class="card-body">
+              <h5 class="card-title"><%= x.name%></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= x.model%></h6>
+              <p class="card-text"><%= x.driverName%></p>
+              <button class="btn btn-secondary" name="id" type="submit">
+                delete
+              </button>
+            </div>
+          </div>
+          <% } %>
+        </form>
+      </div>
+    <!-- BOOTSTRAP -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

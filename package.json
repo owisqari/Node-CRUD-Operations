@@ -1,0 +1,28 @@
+{
+  "name": "owisbukhari-w2-d01-hw6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon ./controllers/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owisqari/owisBukhari-W2-D01-HW6.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owisqari/owisBukhari-W2-D01-HW6/issues"
+  },
+  "homepage": "https://github.com/owisqari/owisBukhari-W2-D01-HW6#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongodb": "^5.4.0",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
+  }
+}
