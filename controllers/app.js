@@ -109,6 +109,27 @@ app.get("/removeCar", (req, res) => {
     });
 });
 
+//get requset to the car detail page using the id as path parameter
+app.get("/CarDetail/:id", (req, res) => {
+  CarsDB.findById(req.params.id)
+    .then((data) => {
+      res.render("CarDetail.ejs", { car: data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/CarDelete/:id", (req, res) => {
+  CarsDB.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.redirect("/carsView");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 //testing port 8080
 app.listen(8888, () => {
   console.log("Server is running on port 8080");
