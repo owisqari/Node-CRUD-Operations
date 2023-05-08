@@ -45,7 +45,7 @@
   <body>
     <div class="h-25">
       <div class="box">
-        <h1 style="font-size: 80px">cars</h1>
+        <h1 style="font-size: 80px">Update <%= car.name %></h1>
         <span>
           <i class="fa-solid fa-angles-down fa-fade fa-2xl"></i>
         </span>
@@ -53,23 +53,22 @@
     </div>
 
     <div class="h-50 d-flex align-items-center justify-content-center">
-      <form action="/carsView" method="post">
+      <form action="/CarUpdate/<%= car.id%>" method="post">
         <div class="input-group input-group-lg">
           <div class="input-group mb-3">
             <input
               name="carName"
               type="text"
               class="form-control"
-              placeholder="Car Name"
-              required
+              value="<%= car.name %>"
+              
             />
             <span class="input-group-text"></span>
             <input
               name="model"
               type="text"
               class="form-control"
-              placeholder="Car Model"
-              required
+              value="<%= car.model %>"
             />
           </div>
 
@@ -77,35 +76,19 @@
             <span class="input-group-text"></span>
             <input
               class="form-control"
-              placeholder="Driver Name"
+              value="<%= car.driverName %>"
               name="driverName"
               type="text"
-              required
+              
             ></input>
           </div>
           <div>
-            <input class="btn btn-primary" type="submit"></input>
+            <button class="btn btn-primary" type="submit">Submit</button>
           </div>
         </div>
       </form>
     </div>
 
-    <div class="h-25 d-flex flex-wrap align-items-center justify-content-center mr-3">
-          <% for(x of cars) { %>
-          <div
-            class="card text-bg-light mb-lg-3 card shadow-lg p-3 mb-5 bg-body rounded m-lg-auto "
-            style="width: 32rem"
-          >
-            <div class="card-body">
-              <h5 class="card-title"><%= x.name%></h5>
-              <a href="/CarDetail/<%=x._id%>" class="link-primary">show detail</a>
-              <a href="/CarUpdate/<%=x._id%>"  class="link-success">Update</a>
-              <a href="/CarDelete/<%=x._id%>" class="link-danger">delete</a>
-
-            </div>
-          </div>
-          <% } %>
-      </div>
     <!-- BOOTSTRAP -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

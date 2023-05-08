@@ -130,6 +130,38 @@ app.get("/CarDelete/:id", (req, res) => {
     });
 });
 
+app.get("/CarUpdate/:id", (req, res) => {
+  CarsDB.findById(req.params.id)
+    .then((data) => {
+      res.render("CarUpdate.ejs", { car: data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/CarUpdate/:id", (req, res) => {
+  const newName = req.body.carName;
+  const newModel = req.body.model;
+  const newdriverName = req.body.driverName;
+  CarsDB.findById(req.params.id)
+    .then((data) => {
+      data.name = newName;
+      data.model = newModel;
+      data.driverName = newdriverName;
+      data
+        .save()
+        .then(() => {
+          res.redirect("/carsView");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 //testing port 8080
 app.listen(8888, () => {
   console.log("Server is running on port 8080");
